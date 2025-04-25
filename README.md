@@ -1,4 +1,4 @@
-Objective: 
+<b>Objective: </b>
 
 Guess the correct answer from a list of 4 
 
