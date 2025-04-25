@@ -1,6 +1,18 @@
 import { Routes } from '@angular/router';
+import { HomePage } from './home/home.page';
+import { TriviaPage } from './trivia/trivia.page';
+import { FlagsPage } from './flags/flags.page';
+import { SettingsPage } from './settings/settings.page';
 
 export const routes: Routes = [
+
+  { path: '', redirectTo: 'home', pathMatch: 'full' },
+  { path: 'home', component: HomePage },
+  { path: 'trivia', component: TriviaPage },
+  { path: 'flags', component: FlagsPage },
+  { path: 'settings', component: SettingsPage },
+
+
   {
     path: 'home',
     loadComponent: () => import('./home/home.page').then((m) => m.HomePage),

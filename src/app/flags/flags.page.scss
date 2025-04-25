@@ -1,13 +1,35 @@
-h1{
-    font-family: 'BubbleFont';
-    font-size: 60px;
-    color:  #74d698;
+#body{
+    background-image: url('../../assets/images/background2.png');
+    width: 100%;
+    height: 100%
+
 }
-#flagCard{
+#logo{
+    float: left;
+    width: 15%;
+
+}
+
+#header{
+    padding-top: 2%;
+    width: 86%;
     text-align: center;
 }
 
+h1{
+
+    font-family: 'BubbleFont';
+    font-size: 60px;
+    color:  white;
+}
+#flagCard{
+    text-align: center;
+    padding-bottom: 2%;
+}
+
 ion-card{
+    clear: left;
+
     
     margin: 0 auto;
     width: 40%;
@@ -22,6 +44,7 @@ ion-card{
     gap: 12px;
     background: #fff;
     border-radius: 20px;
+    padding-bottom: 2%;
 }
 #headTitle{
     text-align: center;
@@ -40,9 +63,10 @@ ion-card{
 }
 #game{
     text-align: center;
+}
 
-    //background-image: url("assets/images/background.jpg");
-    
+#userGuessFlag{
+    width: 80%;
 }
 
 #guess{
@@ -50,4 +74,30 @@ ion-card{
     border-radius: 25px 25px;
     text-align: center;
     margin-top: 2%;
+    width: 80%;
 }
+
+ion-input{
+    font-size: 20px;
+}
+
+#submitButton{
+    width: 150px;
+    height: 60px;
+    border-radius: 45px;
+    transition: all 0.3s;
+    cursor: pointer;
+    background: white;
+    font-size: 20px;
+    font-weight: 550;
+  }
+  
+  #submitButton:hover {
+    background: #315cfd;
+    color: white;
+    //font-size: 1.5em;
+  }
+
+  #extraButtons{
+    text-align: center;
+  }

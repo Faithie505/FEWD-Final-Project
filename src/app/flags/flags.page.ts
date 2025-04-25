@@ -5,6 +5,7 @@ import { IonContent, IonHeader, IonTitle, IonToolbar, IonInput, IonItem, IonCard
 import { Storage } from '@ionic/storage-angular';
 import { Router } from '@angular/router';
 import { GameService } from '../Services/game.service';
+import {ToastController} from '@ionic/angular';
 
 @Component({
   selector: 'app-flags',
@@ -14,6 +15,7 @@ import { GameService } from '../Services/game.service';
   imports: [IonContent, IonHeader, IonTitle, IonToolbar, CommonModule, FormsModule,  IonInput, IonItem, IonCard, IonCardContent, IonCardHeader, IonCardSubtitle, IonCardTitle, IonButton, IonBackButton, IonButtons ]
 })
 export class FlagsPage implements OnInit {
+  //variabls
   randomCountry:any; //the random country chosen
   randomNumber:number = 0; //a random number chosn from 0 to 50
   randomFlag:string =""; //the image for the flag
@@ -35,11 +37,25 @@ export class FlagsPage implements OnInit {
   totalFlagScore:number =0;
 
 
+  constructor(private gameService:GameService, private storage:Storage, private router:Router, private toastController:ToastController) {}
 
+  //a toast thatdisplays a message when the user is correct
+  async presentToast() {
+    const toast = await this.toastController.create({
+      message: 'Congrats! You were correct',
+      duration: 2000, // Duration in ms
+      position: 'top', // 'top' | 'middle' | 'bottom'
+      color: 'success', // 'primary', 'danger', 'light', etc.
+    });
 
-  constructor(private gameService:GameService, private storage:Storage, private router:Router) {}
+    await toast.present();
+    this.ngOnInit();
+  }
 
   ngOnInit(): void {
+    //setting evrything back to the base
+this.flagGuess = "";
+//resets the hints to true so that they are hidden untl the user presses the hint message
     this.hintOneHidden =true;
   this.hintTwoHidden =true;
   this.hintThreeHidden = true;
@@ -59,23 +75,25 @@ export class FlagsPage implements OnInit {
     //saves the value of the randomCountry's Country code variable countrey code 
     this.countryCode = this.randomCountry.cca2;
     //calls the method when the page loads
-    this.getCountryCode();
+    this.getCountryCode(); //calls metjdd
 
 
   }
+  //if tehusers answer is the correct answer, displays message
   submitAnswer(){
     if(this.flagGuess == this.randomCountry.name.common){
       this.totalFlagScore += 10;
-      alert("correct");
+      this.presentToast();
+      //alert("correct");
     }
     else{
-      alert("country is: "+this.randomCountry.name.common)
+      alert("Incorrect! Please Try Again!");
     }
 
   }
 
 
-  //this method gives the user a hint
+  //this method gives the user a hint. it displays a new hint 3 times, and after that, hint resets to 0
   hint(){
     this.countHint++;
     if(this.countHint == 1){
@@ -90,24 +108,25 @@ export class FlagsPage implements OnInit {
 
     }
   }
-
+//gets the details of the nex flag
   nextFlag(){
     this.ngOnInit();
   }
-
-    //method runs asynchronously
     async getCountryCode(){
       await this.storage.create(); //ensures it is never null by always creating
       //stores the country code
       await this.storage.set('countryCode', this.countryCode);
     }
 
-
+//stores the users score
     async getScore(){
       await this.storage.create(); //ensures it is never null by always creating
       //stores the country code
       await this.storage.set('totalFlagScore', this.totalFlagScore);
     }
+
+
+  
 
 
 }

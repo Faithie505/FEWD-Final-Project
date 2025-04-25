@@ -7,6 +7,7 @@ import { CommonModule } from '@angular/common';
 import { RouterLink } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { Storage } from '@ionic/storage-angular';
+import { Browser } from '@capacitor/browser';
 
 @Component({
   selector: 'app-settings',
@@ -60,7 +61,7 @@ export class SettingsPage implements OnInit {
 
   }
 
-  
+  //PLays sounbnd when clicked
   playSound() {
     this.audio.src = 'assets/music/backgroundMusic.mp3';
 
@@ -69,18 +70,28 @@ export class SettingsPage implements OnInit {
     this.audio.play();
   }
 
+  //stops sound
   stopSound()
   {
     this.audio.pause();
     this.audio.currentTime = 0;
   }
 
+  //gets the scpores for the games using storage
   async getScores(){
     //this makes the value of country code what was stored in it before
     this.totalFlagScore = await this.storage.get('totalFlagScore');
     this.totalTriviaScore = await this.storage.get('totalTriviaScore');
 
 
+  }
+
+  async openBrowser(){
+  
+    //opens the trustpilot review page when the button calls the method
+   await Browser.open({
+      url: 'https://ie.trustpilot.com/'
+    });
   }
 
   

@@ -1,16 +1,15 @@
 
 
 
-
 <ion-content [fullscreen]="true">
   <div id="body">
   <p>Settings</p>
 
-
+<!--Diplsays settings-->
   <div class="musicSettings">
     <p class="label">MUSIC</p>
-    <button class="btnOne">ON</button>
-    <button class="btnTwo">OFF</button>
+    <button class="btnOne" (click)="playSound()">ON</button>
+    <button class="btnTwo" (click)="stopSound()">OFF</button>
   </div>
 
   <div class="musicSettings">
@@ -26,18 +25,18 @@
   </div>
 
   <div class="musicSettings">
-    <p class="label">USER</p>
-    <input placeholder="Your Name" id="inputName" type="text" [(ngModel)]="userName">
+    <p class="label1">TOTAL TRIVIA SCORE</p>
+    <p class="label2">{{totalTriviaScore}}</p>
   </div>
 
   <div class="musicSettings">
-    <p class="label">TOTAL TRIVIA SCORE</p>
-    <p class="label">{{totalTriviaScore}}</p>
+    <p class="label1">TOTAL FLAGS SCORE</p>
+    <p class="label2">{{totalFlagScore}}</p>
   </div>
 
-  <div class="musicSettings">
-    <p class="label">TOTAL FLAGS SCORE</p>
-    <p class="label">{{totalFlagScore}}</p>
+
+  <div class="reviewSettings">
+    <button class="review" (click)="openBrowser()">Leave A Review</button>
   </div>
 
 

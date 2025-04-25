@@ -39,7 +39,6 @@
     background-color: #23c483;
     color: #fff;
     transform: translateY(-7px);
-    font-family: 'AttackFont';
 
   }
   
@@ -47,7 +46,6 @@
     background-color: #23c483;
     color: #fff;  
     transform: translateY(-1px);
-    font-family: 'AttackFont';
 
 
 }
@@ -56,6 +54,33 @@
     transform: translateY(-1px);
     background-color: #23c483;
     color: #fff;
-    font-family: 'AttackFont';
 
+  }
+
+  #invisibleHint{
+    text-align: center;
+    font-size: 25px;
+    color: white;
+  }
+
+  #submitButton{
+    width: 150px;
+    height: 60px;
+    border-radius: 45px;
+    transition: all 0.3s;
+    cursor: pointer;
+    background: white;
+    font-size: 20px;
+    font-weight: 550;
+  }
+
+  
+  #submitButton:hover {
+    background: #315cfd;
+    color: white;
+    //font-size: 1.5em;
+  }
+
+  #extraButtons{
+    text-align: center;
   }

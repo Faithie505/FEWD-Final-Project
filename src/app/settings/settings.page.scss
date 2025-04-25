@@ -5,6 +5,7 @@
     font-size: 35px;
     font-weight: bold;
     color: white;
+    padding-top:2%;
 }
 
 .musicSettings{
@@ -41,7 +42,7 @@
 
 button{
     --bg: white;
-  --hover-bg: #ff90e8;
+  --hover-bg: #183153;
   --hover-text: white;
   color: black;
   cursor: pointer;
@@ -100,5 +101,20 @@ button:active {
   .star.selected {
     color: #f39c12; /* Highlight the selected stars */
   }
+  
 
+  .label1{
+    float: left;
+  }
+.label2{
+  float:right;
+}
 
+.review{
+  text-align: center;
+}
+.reviewSettings{
+  clear:left;
+  clear: right;
+  text-align: center;
+}

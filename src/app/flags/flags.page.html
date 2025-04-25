@@ -5,10 +5,14 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
+  <div id="body">
   <div id="game">
     <div id="headTitle">
-      <img src="../../assets/images/gameLogo2.png">
-    <h1 id="title">Guess That Flag</h1>
+      <!--adds image logo-->
+      <img src="../../assets/images/gameLogo2.png" id="logo">
+    </div>
+    <div id="header">
+      <h1>Guess That Flag</h1>
     </div>
   
   
@@ -17,32 +21,31 @@
   
   <div id="flagCard">
     <ion-card>
+      <!--Displays the image of the flag-->
       <img alt="flag images" id="flagImage" src="{{randomCountry.flags.png}}" />
+      <p>(Please write your answer in this format - Answer, i.e. Australia)</p>
       <ion-card-header>
-        <ion-card-title [hidden]="hintOneHidden">Hint</ion-card-title>
-        <!--<ion-card-subtitle >This Country is {{randomCountry.name.common}}</ion-card-subtitle>-->
+        <!--Hides the hints (until hint button is pressed)-->
         <p [hidden]="hintOneHidden">This Country's Capital is {{randomCountry.capital}}</p>
         <p [hidden]="hintTwoHidden">This Country's is located in the region of {{randomCountry.region}}</p>
-        <p [hidden]="hintThreeHidden">This Country's Capital is {{randomCountry.capital}}</p>
-  <p [hidden]="hintOneHidden">Hidden Text</p>
+        <p [hidden]="hintThreeHidden">This Country's name begins with {{randomCountry.name.common[0]}}</p>
       </ion-card-header>
   
-  
+  <!--Using ngModel to allow user it input guess-->
       <ion-item id="guess">
-        <ion-input [(ngModel)]="flagGuess"></ion-input>
-        <ion-button (click)="submitAnswer()">Submit</ion-button>
+        <ion-input [(ngModel)]="flagGuess" id="userGuessFlag"></ion-input>
+        <!--When button is clicked, checks iof user is correct-->
+        <button (click)="submitAnswer()" id="submitButton">Submit</button>
       </ion-item>
     </ion-card>
-    <ion-button (click)="hint()">Hint</ion-button>
   </div>
   
-  
-    <!--<img alt="flag images" id="flagImage" src= {{randomCountry.flags.png}}/>--> <!--displays movie poster-->
-  
-    
-  
   </div>
-  <ion-button (click)="hint()">Hint</ion-button>
-  
-  <ion-button (click)="nextFlag()">Next</ion-button>
+  <div id="extraButtons">
+    <!--Displays hhiden text-->
+  <ion-button (click)="hint()" id="submitButton">Hint</ion-button>
+  <!--skips to next flag-->
+  <ion-button (click)="nextFlag()" id="submitButton">Next</ion-button>
+</div>
+  </div>
 </ion-content>

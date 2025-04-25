@@ -1,0 +1,10 @@
+ion-menu {
+    ion-item {
+      transition: background-color 0.3s ease;  /* Smooth transition for color change */
+    }
+  
+    ion-item:hover {
+      background-color: #4CAF50;  /* Change to your preferred hover color */
+      color: white;  /* Optional: Change text color */
+    }
+  }
