@@ -1,0 +1,44 @@
+.musicOnOff{
+    width: 50%;
+    margin: 0 auto;
+    margin-top: 5%;
+    clear:both;
+
+}
+
+.label{
+    width:30%;
+    float:left;
+}
+
+.on{
+    width: 30%;
+    float:left;
+}
+.off{
+    width: 30%;
+    float:right;
+}
+
+.star-rating {
+    font-size: 2rem;
+    color: #d3d3d3;
+    cursor: pointer;
+  }
+  
+  .star {
+    color: #d3d3d3;
+    margin-right: 5px;
+  }
+  
+  .star:hover,
+  .star:hover ~ .star {
+    color: #f39c12; /* Highlight stars on hover */
+  }
+
+  
+  .star.selected {
+    color: #f39c12; /* Highlight the selected stars */
+  }
+
+

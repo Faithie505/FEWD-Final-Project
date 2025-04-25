@@ -1,0 +1,48 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>flags</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <div id="game">
+    <div id="headTitle">
+      <img src="../../assets/images/gameLogo2.png">
+    <h1 id="title">Guess That Flag</h1>
+    </div>
+  
+  
+  </div>
+  <div id="flag">
+  
+  <div id="flagCard">
+    <ion-card>
+      <img alt="flag images" id="flagImage" src="{{randomCountry.flags.png}}" />
+      <ion-card-header>
+        <ion-card-title [hidden]="hintOneHidden">Hint</ion-card-title>
+        <!--<ion-card-subtitle >This Country is {{randomCountry.name.common}}</ion-card-subtitle>-->
+        <p [hidden]="hintOneHidden">This Country's Capital is {{randomCountry.capital}}</p>
+        <p [hidden]="hintTwoHidden">This Country's is located in the region of {{randomCountry.region}}</p>
+        <p [hidden]="hintThreeHidden">This Country's Capital is {{randomCountry.capital}}</p>
+  <p [hidden]="hintOneHidden">Hidden Text</p>
+      </ion-card-header>
+  
+  
+      <ion-item id="guess">
+        <ion-input [(ngModel)]="flagGuess"></ion-input>
+        <ion-button (click)="submitAnswer()">Submit</ion-button>
+      </ion-item>
+    </ion-card>
+    <ion-button (click)="hint()">Hint</ion-button>
+  </div>
+  
+  
+    <!--<img alt="flag images" id="flagImage" src= {{randomCountry.flags.png}}/>--> <!--displays movie poster-->
+  
+    
+  
+  </div>
+  <ion-button (click)="hint()">Hint</ion-button>
+  
+  <ion-button (click)="nextFlag()">Next</ion-button>
+</ion-content>

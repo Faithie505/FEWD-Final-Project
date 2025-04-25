@@ -1,0 +1,43 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button text="Previous" icon="caret-back"></ion-back-button>
+    </ion-buttons>
+    <ion-title>trivia</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <p [innerHTML]="quest.question" id="triviaQuestion"></p>
+  <p></p>
+
+  <div id="answers">
+    <ion-button (click)="rightButtonClicked()">{{rightAnswer.correct_answer}}</ion-button>
+    <ion-button (click)="wrongButtonClicked()">{{incorrectOne.incorrect_answers[0]}}</ion-button>
+    <ion-button>{{incorrectOne.incorrect_answers[1]}}</ion-button>
+    <ion-button>{{incorrectOne.incorrect_answers[2]}}</ion-button>
+  </div>
+  <p [hidden]="hintVisable">The word begins with {{rightAnswer.correct_answer[0]}}</p>
+
+  <div id="nextTrivia">
+    <ion-button (click)="hint()">Hint</ion-button>
+    <ion-button (click)="nextTriviaQuestion()">Next</ion-button>
+    <button (click)="submitAnswers()">Submit</button>
+  </div>
+    
+
+
+
+
+
+  
+
+  <!---
+  <div *ngFor="let answer of quest.question">
+  <p [innerHTML]="answer"></p>
+</div>-->
+
+  
+  
+ 
+</ion-content>
