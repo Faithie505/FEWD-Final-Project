@@ -1,17 +1,46 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-  </ion-toolbar>
-</ion-header>
+
 
 
 
 <ion-content [fullscreen]="true">
-  <div id="set">
-    <h3>Edit Profile Picture</h3>
-    <ion-avatar>
-      <img alt="Default Avatar" src="../../assets/icon/defaultAvatar.svg" />
-    </ion-avatar>
+  <div id="body">
+  <p>Settings</p>
+
+
+  <div class="musicSettings">
+    <p class="label">MUSIC</p>
+    <button class="btnOne">ON</button>
+    <button class="btnTwo">OFF</button>
   </div>
+
+  <div class="musicSettings">
+    <p class="label">SOUND EFFECTS</p>
+    <button class="btnOne">ON</button>
+    <button class="btnTwo">OFF</button>
+  </div>
+
+  <div class="musicSettings">
+    <p class="label">NOTIFICATIONS</p>
+    <button class="btnOne">ON</button>
+    <button class="btnTwo">OFF</button>
+  </div>
+
+  <div class="musicSettings">
+    <p class="label">USER</p>
+    <input placeholder="Your Name" id="inputName" type="text" [(ngModel)]="userName">
+  </div>
+
+  <div class="musicSettings">
+    <p class="label">TOTAL TRIVIA SCORE</p>
+    <p class="label">{{totalTriviaScore}}</p>
+  </div>
+
+  <div class="musicSettings">
+    <p class="label">TOTAL FLAGS SCORE</p>
+    <p class="label">{{totalFlagScore}}</p>
+  </div>
+
+
 
  
 
@@ -55,6 +84,6 @@
 
   
 
-
+</div>
   
 </ion-content>

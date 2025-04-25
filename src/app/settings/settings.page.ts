@@ -6,6 +6,7 @@ import { IonHeader, IonToolbar, IonTitle, IonContent, IonButton, IonMenu, IonIte
 import { CommonModule } from '@angular/common';
 import { RouterLink } from '@angular/router';
 import { FormsModule } from '@angular/forms';
+import { Storage } from '@ionic/storage-angular';
 
 @Component({
   selector: 'app-settings',
@@ -33,10 +34,15 @@ import { FormsModule } from '@angular/forms';
 export class SettingsPage implements OnInit {
 //variables
   audio = new Audio();
+  userName:string = "";
+  totalScore:number = 0;
+
+  totalFlagScore: number = 0;
+  totalTriviaScore:number = 0 ;
  
 
 
-  constructor() { }
+  constructor(private storage:Storage) { }
 
   ngOnInit() {
   }
@@ -69,6 +75,13 @@ export class SettingsPage implements OnInit {
     this.audio.currentTime = 0;
   }
 
+  async getScores(){
+    //this makes the value of country code what was stored in it before
+    this.totalFlagScore = await this.storage.get('totalFlagScore');
+    this.totalTriviaScore = await this.storage.get('totalTriviaScore');
+
+
+  }
 
   
 

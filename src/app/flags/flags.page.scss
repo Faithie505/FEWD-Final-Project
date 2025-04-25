@@ -10,10 +10,18 @@ h1{
 ion-card{
     
     margin: 0 auto;
-    padding: 0%;
     width: 40%;
     height: 100%;
     text-align: center;
+    padding: 0 15px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 12px;
+    background: #fff;
+    border-radius: 20px;
 }
 #headTitle{
     text-align: center;

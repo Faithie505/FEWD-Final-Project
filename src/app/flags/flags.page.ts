@@ -32,6 +32,8 @@ export class FlagsPage implements OnInit {
   hintThreeHidden:boolean =true;
   countHint = 0;
 
+  totalFlagScore:number =0;
+
 
 
 
@@ -63,6 +65,7 @@ export class FlagsPage implements OnInit {
   }
   submitAnswer(){
     if(this.flagGuess == this.randomCountry.name.common){
+      this.totalFlagScore += 10;
       alert("correct");
     }
     else{
@@ -98,5 +101,13 @@ export class FlagsPage implements OnInit {
       //stores the country code
       await this.storage.set('countryCode', this.countryCode);
     }
+
+
+    async getScore(){
+      await this.storage.create(); //ensures it is never null by always creating
+      //stores the country code
+      await this.storage.set('totalFlagScore', this.totalFlagScore);
+    }
+
 
 }

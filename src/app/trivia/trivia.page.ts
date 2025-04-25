@@ -5,6 +5,7 @@ import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
 import { RouterLink } from '@angular/router';
 import { GameService } from '../Services/game.service';
+import { Storage } from '@ionic/storage-angular';
 
 @Component({
   selector: 'app-trivia',
@@ -23,9 +24,15 @@ export class TriviaPage implements OnInit {
   right:boolean | null = null;
 
   hintVisable:boolean = true; 
+  totalTriviaScore:number = 0;
+  isClicked = false;
+  isClickedTwo = false;
+  isClickedThree = false;
+ isClickedFour = false;
+
   
 
-  constructor(private gameService:GameService, private router:Router) { }
+  constructor(private gameService:GameService, private router:Router, private storage:Storage) { }
   
   //when the user presses the next button, this method calls the ngOnInit method, which will grab a new question
   nextTriviaQuestion(){
@@ -45,6 +52,8 @@ export class TriviaPage implements OnInit {
   submitAnswers(){
     if(this.right == true){
       alert("Right answer");
+      this.totalTriviaScore+=10;
+      this.restart();
     }
     else if(this.right == false){
       alert("wrong answer");
@@ -54,6 +63,15 @@ export class TriviaPage implements OnInit {
     }
   }
 
+  restart(){
+      this.isClicked = false;
+    this.isClickedTwo = false;
+    this.isClickedThree = false;
+    this.isClickedFour = false;
+    this.hintVisable = true;
+    this.ngOnInit();
+
+  }
 
   ngOnInit() {
     this.gameService.getTriviaData().subscribe(
@@ -67,6 +85,39 @@ export class TriviaPage implements OnInit {
       }
     );
 
+  }
+
+  toggleClicked(){
+    this.isClicked = !this.isClicked;
+    this.isClickedTwo = false;
+    this.isClickedThree = false;
+    this.isClickedFour = false;
+
+  }
+  toggleClickedTwo(){
+    this.isClickedTwo = !this.isClickedTwo;
+    this.isClicked = false;
+    this.isClickedThree = false;
+    this.isClickedFour = false;
+  }
+  toggleClickedThree(){
+    this.isClickedThree = !this.isClickedThree;
+    this.isClickedTwo = false;
+    this.isClicked = false;
+    this.isClickedFour = false;
+  }
+  toggleClickedFour(){
+    this.isClickedFour = !this.isClickedFour;
+    this.isClickedTwo = false;
+    this.isClickedThree = false;
+    this.isClicked = false;
+  }
+  
+
+  async getScore(){
+    await this.storage.create(); //ensures it is never null by always creating
+    //stores the country code
+    await this.storage.set('totalTriviaScore', this.totalTriviaScore);
   }
 
 }
